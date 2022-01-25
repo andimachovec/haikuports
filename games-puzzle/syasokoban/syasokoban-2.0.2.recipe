@@ -1,0 +1,50 @@
+SUMMARY="Still yet another sokoban"
+DESCRIPTION="SYASokoban is a sokoban clone"
+HOMEPAGE="http://grayskygames.com/"
+COPYRIGHT="2002-2018 David Joffe"
+LICENSE="GNU GPL v2"
+REVISION="1"
+SOURCE_URI=" https://github.com/davidjoffe/sokoban/archive/v$portVersion.tar.gz"
+SOURCE_DIR="sokoban-$portVersion"
+CHECKSUM_SHA256="c9c1a1ad4e12e5376b2a4dfbaf12f1c1f4e1d51fac2954f6a8da7467181a7851"
+PATCHES="syasokoban-2.0.2.patchset"
+
+ARCHITECTURES="all ?x86"
+
+PROVIDES="
+	syasokoban = $portVersion
+	app:SYASokoban = $portVersion
+	"
+REQUIRES="
+	haiku
+	lib:libSDL_1.2
+	"
+
+BUILD_REQUIRES="
+	haiku_devel
+	devel:libSDL
+	"
+	
+BUILD_PREREQUIRES="
+	cmd:gcc
+	cmd:ld
+	cmd:make
+	"
+
+BUILD()
+{
+	make $jobArgs
+}
+
+INSTALL()
+{
+	echo $sourceDir
+	echo $appsDir
+	mkdir -p $appsDir	
+	#cp -af $sourceDir/syasokoban $appsDir/SYASokoban
+	#cp -arf $sourceDir/data $dataDir/SYASokoban  
+
+	addResourcesToBinaries $portDir/additional-files/SYASokoban.rdef $appsDir/SYASokoban
+
+	addAppDeskbarSymlink $appsDir/SYASokoban SYASokoban
+}
