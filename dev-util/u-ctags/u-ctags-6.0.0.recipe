@@ -2,7 +2,7 @@ SUMMARY="A tool that creates tags files for code browsing in editors"
 DESCRIPTION="
 Exuberant Ctags creates tags files for code browsing in editors.
 "
-HOMEPAGE="http://ctags.sourceforge.net/"
+HOMEPAGE="http://github.com/universal-ctags/ctags/"
 COPYRIGHT="1996-2009, Darren Hiebert"
 LICENSE="GNU GPL v2"
 REVISION="5"
